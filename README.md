@@ -1,6 +1,9 @@
 # ProyectoSIBCTienda
 Proyecto de Ingenieria de software
 
+![image](https://user-images.githubusercontent.com/62969243/217109989-b33e2660-fca5-4548-ba63-dd5486598650.png)
+
+
 +Se utilizo Visual Studio
 +SQL SERVER
 +Bootstrap 5
@@ -27,8 +30,3 @@ Proyecto de Ingenieria de software
 
 ## Login
 ![image](https://user-images.githubusercontent.com/62969243/217109856-64884f1a-91c6-4986-9c1d-e2a97dcb5681.png)
-
-## General
-![image](https://user-images.githubusercontent.com/62969243/217109989-b33e2660-fca5-4548-ba63-dd5486598650.png)
-
-
