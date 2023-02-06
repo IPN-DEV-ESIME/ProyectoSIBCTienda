@@ -1,8 +1,6 @@
 # ProyectoSIBCTienda
 Proyecto de Ingenieria de software
 
-# Tienda Java
-
 +Se utilizo Visual Studio
 +SQL SERVER
 +Bootstrap 5
