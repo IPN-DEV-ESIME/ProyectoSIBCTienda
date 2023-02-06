@@ -25,4 +25,10 @@ Proyecto de Ingenieria de software
 ## Content
 ![image](https://user-images.githubusercontent.com/62969243/217109017-c9741439-c4a6-440a-84fc-267f31e81f9f.png)
 
+## Login
+![image](https://user-images.githubusercontent.com/62969243/217109856-64884f1a-91c6-4986-9c1d-e2a97dcb5681.png)
+
+## General
+![image](https://user-images.githubusercontent.com/62969243/217109989-b33e2660-fca5-4548-ba63-dd5486598650.png)
+
 
