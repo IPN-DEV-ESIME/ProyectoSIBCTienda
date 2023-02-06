@@ -1,0 +1,102 @@
+﻿@model IEnumerable<Tienda.Models.Producto>
+
+@{
+    ViewBag.Title = "Productos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="table-responsive bg-light p-5 rounded">
+    <h3>Productos</h3>
+
+    <!--Acciones-->
+    <p>
+        @Html.ActionLink("Nuevo Producto", "Formulario", null, new { @class = "btn btn-primary", role = "button" })
+        @Html.ActionLink("Categorias", "../Categorias", null, new { @class = "btn btn-success", role = "button" })
+    </p>
+
+    <!--Buscador-->
+    <form class="d-inline-flex p-2">
+
+        @using (Html.BeginForm("Busqueda", "Productos", FormMethod.Get))
+        {
+
+            @Html.TextBox("txtBusqueda", null, new { @class = "form-control me-2", placeholder = "Buscar", type = "search" })
+            <input type="submit" value="Buscar" class="btn btn-outline-success" />
+        }
+    </form>
+
+    <!--Contenido (tabla)-->
+    <table class="table table-striped" style="width:100%">
+        <thead class="table-light">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CategoriaId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProveedorId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Descripcion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Sku)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cantidad)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Precio)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FechaRegistro)
+                </th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CategoriaId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProveedorId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Descripcion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Sku)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cantidad)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Precio)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FechaRegistro)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Ver", "Detalles", new { id = item.Id })
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+

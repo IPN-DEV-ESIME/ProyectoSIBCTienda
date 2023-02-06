@@ -1,0 +1,69 @@
+﻿@model Tienda.Models.Producto
+
+@{
+    ViewBag.Title = "Detalles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalles</h2>
+<p>
+    @Html.ActionLink("Regresar", "Index", null, new { @class = "btn btn-outline-primary btn-sm", role = "button" })
+</p>
+
+<div class="row">
+    <h4>Producto: @Html.DisplayFor(model => model.Id)</h4>
+    <hr />
+    <div class="card mb-3 g-3">
+        <div class="row g-0">
+            <div class="col-md-3">
+                <img src="~/Content/img/producto.jpg" class="card-img-top" alt="...">
+            </div>
+            <div class="card-body col-md-auto w-auto">
+                <h5 class="card-title">
+                    @Html.DisplayFor(model => model.Nombre)
+                </h5>
+                <small class="text-muted">Fecha de registro: @Html.DisplayFor(model => model.FechaRegistro) </small><br />
+                @Html.DisplayNameFor(model => model.CategoriaId) : @Html.DisplayFor(model => model.CategoriaId) <br />
+                @Html.DisplayNameFor(model => model.ProveedorId) :  @Html.DisplayFor(model => model.ProveedorId)<br />
+            </div>
+
+
+            <div class="card-body col-md-auto w-auto">
+                <h5 class="card-title">Datos</h5>
+                @Html.DisplayNameFor(model => model.Sku) : @Html.DisplayFor(model => model.Sku) <br />
+                @Html.DisplayNameFor(model => model.Cantidad) : @Html.DisplayFor(model => model.Cantidad) <br />
+                @Html.DisplayNameFor(model => model.Precio) : @Html.DisplayFor(model => model.Precio)
+            </div>
+
+            <div class="card-body col-md-auto w-auto">
+                <h5 class="card-title"> @Html.DisplayNameFor(model => model.Descripcion)</h5>
+                @Html.DisplayFor(model => model.Descripcion)<br />
+            </div>
+        </div>
+    </div>
+    <p>
+        <button type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Eliminar</button>
+
+        @Html.ActionLink("Editar", "Formulario", new { id = Model.Id }, new { @class = "btn btn-success btn-sm", role = "button" })
+    </p>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5 text-danger" id="exampleModalLabel">¡Adevertencia!</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <h5>¿Estas seguro de eliminar a este producto?</h5>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal" aria-label="Close"> Cancelar</button>
+                @Html.ActionLink("Eliminar", "Eliminar", new { id = Model.Id }, new { @class = "btn btn-outline-danger", role = "button" })
+            </div>
+        </div>
+    </div>
+</div>

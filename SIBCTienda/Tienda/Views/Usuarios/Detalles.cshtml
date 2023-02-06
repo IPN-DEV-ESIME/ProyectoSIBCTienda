@@ -1,0 +1,99 @@
+﻿@model Tienda.Models.Usuario
+
+@{
+    ViewBag.Title = "Detalles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalles</h2>
+<p>
+    @Html.ActionLink("Regresar", "Index", null, new { @class = "btn btn-outline-primary btn-sm", role = "button" })
+</p>
+
+<div class="row">
+
+    <div class="card mb-3 g-3">
+        <!--1ra fila-->
+        <div class="row g-0">
+            <div class="col-md-3">
+                <img src="~/Content/img/usuario.jpg" class="card-img-top" alt="...">
+            </div>
+            <div class="card-body col-md-auto w-auto">
+
+                <h5 class="card-title">
+                    @Html.DisplayFor(model => model.nombre)
+                    @Html.DisplayFor(model => model.appaterno)
+                    @Html.DisplayFor(model => model.apmaterno)
+
+                </h5>
+                <small class="text-muted">Fecha de registro: @Html.DisplayFor(model => model.fechaRegistro) </small><br />
+                @Html.DisplayNameFor(model => model.id) :   @Html.DisplayFor(model => model.id)<br />
+                @Html.DisplayNameFor(model => model.rfc) :   @Html.DisplayFor(model => model.rfc)<br />
+                @Html.DisplayNameFor(model => model.username) :   @Html.DisplayFor(model => model.username)<br />
+                @Html.DisplayNameFor(model => model.edad) :   @Html.DisplayFor(model => model.edad)<br />
+                @Html.DisplayNameFor(model => model.sexo) :   @Html.DisplayFor(model => model.sexo)<br />
+
+            </div>
+
+            <div class="card-body col-md-auto w-auto">
+                <h5 class="card-title">Contacto</h5>
+
+                @Html.DisplayNameFor(model => model.contacto.telefono1) : @Html.DisplayFor(model => model.contacto.telefono1)<br />
+
+                @Html.DisplayNameFor(model => model.contacto.telefono2) :  @Html.DisplayFor(model => model.contacto.telefono2)<br />
+
+                @Html.DisplayNameFor(model => model.contacto.correo) : @Html.DisplayFor(model => model.contacto.correo)<br />
+
+            </div>
+
+            <div class="card-body col-md-auto w-auto">
+                <h5 class="card-title">Direccion</h5>
+
+                @Html.DisplayNameFor(model => model.direccion.entidadFederativa) : @Html.DisplayFor(model => model.direccion.entidadFederativa)<br />
+
+                @Html.DisplayNameFor(model => model.direccion.codigoPostal) : @Html.DisplayFor(model => model.direccion.codigoPostal)<br />
+
+                @Html.DisplayNameFor(model => model.direccion.colonia) : @Html.DisplayFor(model => model.direccion.colonia)<br />
+
+                @Html.DisplayNameFor(model => model.direccion.calle) : @Html.DisplayFor(model => model.direccion.calle)<br />
+
+                @Html.DisplayNameFor(model => model.direccion.noInterior) : @Html.DisplayFor(model => model.direccion.noInterior)<br />
+
+                @Html.DisplayNameFor(model => model.direccion.noExterior) : @Html.DisplayFor(model => model.direccion.noExterior)<br />
+
+                @Html.DisplayNameFor(model => model.direccion.descripcion) : @Html.DisplayFor(model => model.direccion.descripcion)<br />
+
+            </div>
+        </div>
+
+    </div>
+
+    <p>
+        <button type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Eliminar</button>
+
+        @Html.ActionLink("Editar", "Formulario", new { id = Model.id }, new { @class = "btn btn-success btn-sm", role = "button" })
+    </p>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5 text-danger" id="exampleModalLabel">¡Adevertencia!</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <h5>¿Estas seguro de eliminar a este usuario?</h5>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal" aria-label="Close"> Cancelar</button>
+                @Html.ActionLink("Eliminar", "Eliminar", new { id = Model.id }, new { @class = "btn btn-outline-danger", role = "button" })
+            </div>
+        </div>
+    </div>
+</div>
+

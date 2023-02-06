@@ -1,0 +1,92 @@
+﻿@model Tienda.Models.Producto
+
+@{
+    ViewBag.Title = "Formulario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="card card-body mb-3 g-3 w-auto">
+        <h4>Producto:  @Html.DisplayFor(model => model.Id)</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="row g-3 mb-3 w-auto">
+            <div class="col-md-3">
+                <img src="~/Content/img/producto.jpg" class="card-img-top" alt="...">
+            </div>
+            <div class="col md-8">
+                <div class="row g-1 mb-1 w-auto">
+                    <div class="row-cols-md-auto w-auto">
+                        <label class="form-label">Nombre</label>
+                        @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+     
+             </div>
+        </div>
+        <!--Datos del producto-->
+        <h5>Datos</h5>
+        <p>
+            <div class="row g-3 mb-3">
+                <div class="col-md-auto w-auto">
+                    <label class="form-label">Categoria</label>
+                    @Html.EditorFor(model => model.CategoriaId, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CategoriaId, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-auto w-auto">
+                    <label class="form-label">Proveedor</label>
+                    @Html.EditorFor(model => model.ProveedorId, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ProveedorId, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-auto w-auto">
+                    <label class="form-label">SKU</label>
+                    @Html.EditorFor(model => model.Sku, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Sku, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        <p></p>
+        <div class="row g-3 mb-3">
+            <div class="col-md-auto w-auto">
+                <label class="form-label">Cantidad</label>
+                @Html.EditorFor(model => model.Cantidad, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Cantidad, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-auto w-auto">
+                <label class="form-label">Precio</label>
+                @Html.EditorFor(model => model.Precio, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Precio, "", new { @class = "text-danger" })
+             </div>
+
+            </div>
+
+        <div class="row g-3 mb-3">
+            <div class="col-md-4 w-100">
+                @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label" })
+                @Html.TextAreaFor(model => model.Descripcion, new { @class = "form-control", @rows = "5" } )
+                @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+        <p>
+
+
+        <p></p>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @Html.ActionLink("Regresar", "Index", null, new { @class = "btn btn-outline-primary", role = "button" })
+                <input type="submit" value="Guardar" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

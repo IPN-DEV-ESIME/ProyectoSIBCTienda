@@ -1,0 +1,54 @@
+﻿@model Tienda.Models.Categoria
+
+@{
+    ViewBag.Title = "Detalles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalles</h2>
+
+<p>
+    @Html.ActionLink("Regresar", "Index", null, new { @class = "btn btn-outline-primary btn-sm", role = "button" })
+</p>
+
+<div class="row">
+    <hr />
+    <div class="card" style="width: 18rem">
+        <img src="~/Content/img/categoria.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">
+                Categoria: @Html.DisplayFor(model => model.Id)
+            </h5>
+            <p class="card-text">@Html.DisplayNameFor(model => model.Descripcion) :  @Html.DisplayFor(model => model.Descripcion) </p>
+        </div>
+    </div>
+    <hr />
+    <p>
+        <button type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Eliminar</button>
+        @Html.ActionLink("Editar", "Formulario", new { id = Model.Id }, new { @class = "btn btn-success btn-sm", role = "button" })
+    </p>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5 text-danger" id="exampleModalLabel">¡Adevertencia!</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <h5>¿Estas seguro de eliminar a esta categoria?</h5>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal" aria-label="Close"> Cancelar</button>
+                @Html.ActionLink("Eliminar", "Eliminar", new { id = Model.Id }, new { @class = "btn btn-outline-danger", role = "button" })
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
